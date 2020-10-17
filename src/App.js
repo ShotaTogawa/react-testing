@@ -1,15 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 
+import React from 'react';
+
+import {Counter} from './features/counter/Counter';
+import logo from './logo.svg';
+import RenderInput from './RenderInput';
+import FrameworkList from './FrameworkList';
+import UseEffectRender from './UseEffectRender';
+import MockServer from './MockServer';
+
+
 function App() {
+  const data = [
+    {
+    id: 1,
+    item: "React"
+    },
+    {
+      id: 2,
+      item: "Angular"
+    },
+    {
+      id: 3,
+      item: "vue"
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
         <Counter />
-        <p>
+        <RenderInput outputConsole={console.log} />
+        {/* <FrameworkList frameworks={data} /> */}
+        <FrameworkList />
+        <UseEffectRender />
+        <MockServer />
+    <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <span>
@@ -50,7 +76,8 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+
+              </header>
     </div>
   );
 }
